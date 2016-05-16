@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="https://fb.me/react-15.0.2.js"></script>
+    <script src="https://fb.me/react-dom-15.0.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+
+
+<div id="mount-point"></div>
+    <script type="text/babel">
+    var FbLike = React.createClass({
+      getInitialState: function() {
+        return {
+          like: false
+        }
+      },
+      onClickFbLike: function() {
+        this.setState({
+          like: !this.state.like
+        })
+      },
+      render: function() {
+        return (
+          <p onClick = {this.onClickFbLike} >
+          {
+            this.state.like ? "liked" : "unliked"
+          }
+          < /p>
+        )
+      }
+    });
+
+    ReactDOM.render( < FbLike / > ,
+      document.getElementById("mount-point")
+    );
+    </script>
+  </body>
+</html>
