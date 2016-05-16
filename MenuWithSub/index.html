@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="https://fb.me/react-15.0.2.js"></script>
+    <script src="https://fb.me/react-dom-15.0.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+
+
+<div id="mount-point"></div>
+    <script type="text/babel">
+    var MenuWithSub = React.createClass({
+
+        getInitialState: function() {
+            return {
+                menus: [{
+                    'route': '/home',
+                    'title': 'Home',
+                    "sub_menus": [{
+                        'title': 'Home-1',
+                        'route': 'home_1'
+                    }, {
+                        'title': 'Home-2',
+                        'route': 'home_2'
+                    }]
+                }, {
+                    'route': '/about-us',
+                    'title': 'About Us',
+                    "sub_menus": [{
+                        'title': 'Home-1',
+                        'route': 'home_1'
+                    }, {
+                        'title': 'Home-2',
+                        'route': 'home_2'
+                    }]
+                }, {
+                    'route': '/portfolio',
+                    'title': 'Portfolio',
+                    "sub_menus": [{
+                        'title': 'Home-1',
+                        'route': 'home_1'
+                    }, {
+                        'title': 'Home-2',
+                        'route': 'home_2'
+                    }]
+                }, {
+                    'route': 'http://www.github.com/samithaHewawasam',
+                    'title': 'Github',
+                    "sub_menus": [{
+                        'title': 'Home-1',
+                        'route': 'home_1'
+                    }, {
+                        'title': 'Home-2',
+                        'route': 'home_2'
+                    }]
+                }, {
+                    'route': 'http://stackoverflow.com/users/1521771/underscore',
+                    'title': 'Contact Us',
+                    "sub_menus": [{
+                        'title': 'Home-1',
+                        'route': 'home_1'
+                    }, {
+                        'title': 'Home-2',
+                        'route': 'home_2'
+                    }]
+                }]
+            }
+        },
+        render: function() {
+            return (<ul> {
+                this.state.menus.map(function(menu) {
+                  return (<li key={menu.route}>
+                  <a href={menu.route}>{menu.title}
+               <ul> {menu.sub_menus.map(function(sub){
+                    return <li  key={sub.route}><a href={sub.route}>{sub.title}</a></li>
+                  })}</ul>
+                  </a>
+                  </li>)
+                })}
+                </ul>)
+        }
+    });
+
+    ReactDOM.render( < MenuWithSub / > ,
+        document.getElementById("mount-point")
+    );
+    </script>
+  </body>
+</html>
