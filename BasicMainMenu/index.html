@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="https://fb.me/react-15.0.2.js"></script>
+    <script src="https://fb.me/react-dom-15.0.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+
+
+<div id="mount-point"></div>
+    <script type="text/babel">
+    var BasicMainMenu = React.createClass({
+
+          getInitialState: function() {
+            return {
+              menus: [{
+                'route': '/home',
+                'title': 'Home'
+              }, {
+                'route': '/about-us',
+                'title': 'About Us'
+              }, {
+                'route': '/portfolio',
+                'title': 'Portfolio'
+              }, {
+                'route': 'http://www.github.com/samithaHewawasam',
+                'title': 'Github'
+              }, {
+                'route': 'http://stackoverflow.com/users/1521771/underscore',
+                'title': 'Contact Us'
+              }]
+            }
+          },
+          render: function() {
+            return (<ul> {
+                this.state.menus.map(function(menu) {
+                  return <li>
+                  <a href={menu.route}>{menu.title}</a>
+                  </li>
+                })}
+                </ul>
+                )}
+              });
+
+          ReactDOM.render( < BasicMainMenu / > ,
+            document.getElementById("mount-point")
+          );
+    </script>
+  </body>
+</html>
